@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        *{
+            overflow: hidden;
+        }
+        .sky{
+            width: 100vw;
+            height: 50vh;
+            background-image: url('./sky.jpg');
+            background-position: center;
+            background-repeat: repeat-x;
+            background-size: auto 100%;
+            /* background-size: cover; */
+        }
+        .gridBox{
+            display: grid;
+            grid-template-rows: repeat(3,1fr);
+            grid-template-columns: repeat(3,1fr);
+        }
+        .bigHole{
+            width: 20vw;
+            height: 13vh;
+            border-radius: 50%;
+            background-color: black;
+            /* margin-left: 25px; */
+        }
+        .hole{
+            width: 24vw;
+            height: 12vh;
+            border-radius: 50%;
+            background-color: black;
+            /* margin-left: 25px; */
+        }
+        .gridMB{
+            display: grid;
+            grid-template-rows: repeat(2,1fr);
+            grid-template-columns: repeat(3,1fr);
+            grid-gap: 30px;
+        }
+        .tit{ -webkit-text-stroke: 0.5px white;font-weight: 1000;}
+        .centerAb{
+            position: absolute;
+            top: 27.5vh;
+            z-index: 10;
+            display: flex;
+
+        }
+        #my-canvas{
+            position: absolute;
+            width: 90vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div id="pop" class="hidden pop w-[90vw] sm:w-[65vw] md:w-[50vw] h-[45vh] bg-white centerAb left-[5vw] sm:left-[17.5vw] md:left-[25vw] flex justify-center flex-col gap-3 items-center ">
+        <img class="w-[160px] md:w-[250px]" id="statusImg" alt="">
+        <h1 class=" text-xl lg:text-3xl tit text-center" id="statusT"></h1>
+<button id="cutBtn" class="absolute top-4 right-2" onclick="
+document.getElementById('pop').classList.add('hidden');
+document.getElementById('playBtn').classList.remove('hidden');
+document.getElementById('playBtn').innerText=`Play again`;
+document.getElementById('playBtn').onclick=()=>{window.location.reload()}
+">X</button>
+    </div>
+    <div class="sky flex justify-center items-center">
+<h1 class="text-green-700 text-3xl lg:text-5xl tit text-center">Whack A Mole Game</h1>
+    
+    </div>
+    <button id="playBtn" class="absolute top-[35vh] px-2 left-[40%] lg:w-[11vw] bg-green-700 rounded-full text-white py-2 text-center" onclick="Play()">Start Play</button>
+    <p class="absolute top-5 left-5 text-xl font-extrabold" id="score"></p>
+    <div class="ground w-full h-[50vh] bg-green-500 gridMB sm:gridBox mx-auto">
+<div class="0 hole lg:bigHole flex justify-center items-center">
+    <!-- <img src="./mole.png" class="w-40" alt="" id="mole"> -->
+</div>
+<div class="1 hole lg:bigHole flex justify-center items-center">
+    <!-- <img src="./mole.png" class="w-40" alt=""> -->
+</div>
+<div class="2 hole lg:bigHole flex justify-center items-center">
+    <!-- <img src="./mole.png" class="w-40" alt=""> -->
+</div>
+<div class="3 hole lg:bigHole flex justify-center items-center">
+    <!-- <img src="./mole.png" class="w-40" alt=""> -->
+</div>
+<div class="4 hole lg:bigHole flex justify-center items-center">
+    <!-- <img src="./mole.png" class="w-40" alt=""> -->
+</div>
+<div class="5 hole lg:bigHole flex justify-center items-center">
+    <!-- <img src="./mole.png" class="w-40" alt=""> -->
+</div>
+<div class="6 hole lg:bigHole flex justify-center items-center">
+    <!-- <img src="./mole.png" class="w-40" alt=""> -->
+</div>
+<div class="7 hole lg:bigHole flex justify-center items-center">
+    <!-- <img src="./mole.png" class="w-40" alt=""> -->
+</div>
+<div class="8 hole lg:bigHole flex justify-center items-center">
+    <!-- <img src="./mole.png" class="w-40" alt=""> -->
+</div>
+</div>
+    </div>
+    <canvas id="my-canvas"></canvas>
+    <script src="./index.min.js"></script>
+<script src="./main.js"></script>
+</body>
+</html>
